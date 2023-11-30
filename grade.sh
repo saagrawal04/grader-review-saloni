@@ -8,7 +8,7 @@ mkdir grading-area
 git clone $1 student-submission
 echo 'Finished cloning'
 
-
+javac student-submission/ListExamples.java
 if [ ! -f student-submission/ListExamples.java ]
 then
   echo "Error: The required Java file ie. ListExamples.java is missing."
