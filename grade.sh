@@ -7,16 +7,19 @@ mkdir grading-area
 
 git clone $1 student-submission
 echo 'Finished cloning'
-if [ ! -f student-submission/YourJavaFile.java ]
+
+
+if [ ! -f student-submission/ListExamples.java ]
 then
-  echo "Error: The required Java file is missing in the student submission."
-  exit 
+  echo "Error: The required Java file ie. ListExamples.java is missing."
+  exit 1
 fi
 
-cp student-submission/YourJavaFile.java grading-area/
-cp path/to/your/grading/tests/* grading-area/
-
+cp student-submission/ListExamples.java grading-area/
+cp TestListExamples.java grading-area/
+cp grading-area
 cd grading-area
+
 set +e
 javac -cp  javac -cp .:lib/hamcrest-core-1.3.jar:lib/junit-4.13.2.jar *.java YourJavaFile.java GradingTestFile.java
 if [ $? -ne 0 ]; then
@@ -27,6 +30,7 @@ fi
 
 
 java -cp java -cp .:lib/hamcrest-core-1.3.jar:lib/junit-4.13.2.jar org.junit.runner.JUnitCore GradingTestFile > test_output.txt
+
 grep "grade" 
 
 
