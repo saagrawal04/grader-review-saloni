@@ -21,7 +21,7 @@ cp grading-area
 cd grading-area
 
 set +e
-javac -cp  javac -cp .:lib/hamcrest-core-1.3.jar:lib/junit-4.13.2.jar *.java YourJavaFile.java GradingTestFile.java
+javac -cp  javac -cp .:lib/hamcrest-core-1.3.jar:lib/junit-4.13.2.jar *.java
 if [ $? -ne 0 ]; then
   echo "Error: Compilation failed. Please check your code and try again."
   exit 
